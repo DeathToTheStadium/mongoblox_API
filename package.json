@@ -1,0 +1,33 @@
+{
+  "name": "mongoblox_api",
+  "version": "1.0.0",
+  "description": "This is a Datastore api that helps with mongodb development to be used with my datastoremodule in roblox",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/goldenexecutive/mongoblox_API.git"
+  },
+  "keywords": [
+    "mongodb",
+    "roblox",
+    "Datastore",
+    "javascript"
+  ],
+  "author": "DeathToThStadium",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/goldenexecutive/mongoblox_API/issues"
+  },
+  "homepage": "https://github.com/goldenexecutive/mongoblox_API#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.11.11"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}

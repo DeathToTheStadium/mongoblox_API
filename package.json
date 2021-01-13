@@ -4,8 +4,7 @@
   "description": "This is a Datastore api that helps with mongodb development to be used with my datastoremodule in roblox",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "nodemon start"
   },
   "repository": {
     "type": "git",
@@ -17,7 +16,7 @@
     "Datastore",
     "javascript"
   ],
-  "author": "DeathToThStadium",
+  "author": "[ROBLOXUSER]DeathToThStadium",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/goldenexecutive/mongoblox_API/issues"

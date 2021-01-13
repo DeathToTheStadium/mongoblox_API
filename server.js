@@ -10,6 +10,14 @@ const limiter     = require('express-rate-limit')
 const routes      = require('./API/routes')
 //-->initializations
 const app = express()
+const AuthenticationToken = ''
+const UserName = ''
+const Password = ''
+
+var token = jsonwbtoken.sign({
+    name:"Dude",
+    data:["data1","data2","data1","data2"]
+},'secret')
 
 //-->functions
 
@@ -21,7 +29,8 @@ app.use(routes.Del)
 
 
 app.get('/',(req,res)=>{
-    res.send("not allowed to view")
+
+    res.send("not allowed to view \n" +`${token}`)
 })
 
 app.listen(settings.server.portNumber,function(req,res){

@@ -1,6 +1,7 @@
 // Written by Joseph
 
 //--> IMPORTS
+require('dotenv').config()
 const settings = require('./CLASSES/settings')
 const express = require('express')
 const mongoose = require('mongoose')
@@ -23,11 +24,8 @@ app.use(routes.Del)
 
 app.post("/:username&:password",function(req,res){
     if (req.params.username == credentials.username && req.params.password == credentials.password){
-        var token = jsonwbtoken.sign({
-            name:"Dude",
-            data:["data1","data2","data1","data2"]
-        },'veryinterestingtext')
-        res.send(token)
+        var accesstoken = jsonwbtoken.sign({name:"token"},process.env.TOKEN_SECRET)
+        res.json({accesstoken:accesstoken})
     } else {
         res.send('sorry not logged in ')
     }

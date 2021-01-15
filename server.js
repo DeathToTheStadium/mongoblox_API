@@ -1,42 +1,28 @@
 // Written by Joseph
 
 //--> IMPORTS
-require('dotenv').config()
-const settings = require('./CLASSES/settings')
+//>> Settings
+require('dotenv')
+const Config = require('./CLASSES/Configuration/settings')
+const routes = require('./API/routes')
+//>>Network
 const express = require('express')
-const mongoose = require('mongoose')
+const axios = require('axios');
+//>>Utililties
 const body_parser = require('body-parser')
-const jsonwbtoken = require('jsonwebtoken')
-const limiter     = require('express-rate-limit')
-const routes      = require('./API/routes')
-const bcrypt      = require('bcrypt')
-const credentials = require('./credentials')
+const fs = require('fs')
+
 //-->initializations
 const app = express()
 
-
-
-app.use(body_parser.json({}))
+//>> routes and Setup
 app.use(body_parser.urlencoded({extended:true}))
-app.use(routes.Get)
+app.use(body_parser.json())
 app.use(routes.Set)
+app.use(routes.Get)
 app.use(routes.Del)
+app.use(routes.Auth)
 
-app.post("/:username&:password",function(req,res){
-    if (req.params.username == credentials.username && req.params.password == credentials.password){
-        var accesstoken = jsonwbtoken.sign({name:"token"},process.env.TOKEN_SECRET)
-        res.json({accesstoken:accesstoken})
-    } else {
-        res.send('sorry not logged in ')
-    }
-})
-
-app.get('/',async(req,res)=>{
-    res.redirect("https://google.com")
-})
-
-
-app.listen(settings.server.portNumber,function(req,res){
-    let log = `Server is now running on port:${settings.server.portNumber}`
-    console.log(log)
+app.listen(Config.server.port,()=>{
+  console.log(`SERVER IS RUNNING ON PORT:${Config.server.port}`)
 })

@@ -2,9 +2,10 @@
   "name": "mongoblox_api",
   "version": "1.0.0",
   "description": "This is a Datastore api that helps with mongodb development to be used with my datastoremodule in roblox",
-  "main": "server.js",
+  "main": "server.jsnode ",
   "scripts": {
-    "start": "nodemon start"
+    "deving": "nodemon server.js",
+    "dev": "nodemon authserver.js"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,7 @@
   },
   "homepage": "https://github.com/goldenexecutive/mongoblox_API#readme",
   "dependencies": {
+    "axios": "^0.21.1",
     "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
     "dotenv": "^8.2.0",
